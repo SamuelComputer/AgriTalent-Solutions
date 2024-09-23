@@ -1,0 +1,22 @@
+
+{% extends "job_board/base.html" %}
+
+{% load humanize %}
+
+{% block content %}
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; width: 100%; margin: 0 auto;">
+        {% for posting in job_postings %}
+            <a href="{% url 'job_detail' posting.pk %}" style="width: 100%; max-width: 300px; text-align: center; text-decoration: none; color: inherit; margin-bottom: 20px;">
+                <div style="border: 1px solid #ccc; border-radius: 5px; padding: 20px; background-color: #fafafa; transition: background-color 0.3s; background-color: #e8f5e9;">
+                    <h2 style="font-size: 1.5em; padding-bottom: 10px; color: #4caf50;">{{posting.title}}</h2>
+                    <p style="font-size: 1.25em; padding-bottom: 10px; font-weight: bold; color: #555;">Company: {{posting.company}}</p>
+                    <p style="font-size: 1.25em; padding-bottom: 10px; color: #333;">Salary: ${{posting.salary|intcomma}}/year</p>
+                    <p style="text-decoration: underline; color: #4caf50; transition: color 0.3s;">View Details</p>
+                    <hr style="margin-top: 20px; border: none; border-top: 1px solid #ccc;">
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock content %}
+
+

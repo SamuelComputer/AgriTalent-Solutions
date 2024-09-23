@@ -1,0 +1,21 @@
+
+{% extends 'job_board/base.html' %}
+
+{% load humanize %}
+
+{% block content %}
+<div style="width: 100%; margin: 0 auto;">
+    <p style="padding-bottom: 20px; text-align: center;">
+        <a href="{% url 'home' %}" class="btn">Go back</a>
+    </p>
+    <h1 style="font-size: 2.5em; font-weight: bold; padding-bottom: 10px; text-decoration: underline; text-underline-offset: 8px; color: #4caf50; text-align: center;">{{posting.title}}</h1>
+    <p style="padding-bottom: 10px; font-size: 1.25em; color: #555; text-align: center;">Company: {{posting.company}}</p>
+    <p style="padding-bottom: 10px; font-size: 1.25em; font-weight: bold; color: #333; text-align: center;">Salary: ${{posting.salary|intcomma }}/year</p>
+    <p style="padding-bottom: 10px; font-size: 1.25em; color: #555; text-align: center;">Description: {{posting.description}}</p>
+    <p style="text-align: center; margin-top:20px;">
+        <a href="#" class="btn" style="background-color: #4caf50; color: white; border: none;">APPLY NOW </a>
+    </p>
+
+</div>
+{% endblock content %}
+
